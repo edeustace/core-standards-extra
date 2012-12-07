@@ -1,0 +1,61 @@
+!!! 5
+html(lang="en")
+  head
+    title= "Core Standards Extra"
+
+    link{ :rel=> "stylesheet", :href=>"/assets/bootstrap/css/bootstrap.css" }
+    link{ :rel=> "stylesheet", :href=>"/assets/css/app.css" }
+    link{ :href=>"//fonts.googleapis.com/css?family=Domine:400,700", :rel=>"stylesheet", :type=>"text/css" }
+
+  body
+    .container
+      br/
+      br/
+      .well
+        .title 
+          .main Core Standards | 
+          .tagged xml ~> json converter 
+        br/
+        br/
+        | Enter a corestandards xml url here:
+        form{ :action => "/get-json", :method => "POST", :class=>"form-inline" }
+          input{ 
+            :type => "text", 
+            :style => "width: 400px", 
+            :name => "url", 
+            :value => "http://www.corestandards.org/ELA-Literacy/RL/2/1.xml" }
+          button{ :type=>"submit", :class=>"btn"} Make json 
+
+      .well
+        h4 Why?
+        a{ :href=>"http://corestandards.org" } corestandards.org
+        | contains the authoritive list of common core standards in html and xml form.
+        | But the xml it provides you is missing some vital information 
+        | that is available on the html version of the site.
+
+        h4 An example
+        | First inspect the xml for the standard RL.2.1: 
+        a{ :href => "http://corestandards.org/ELA-Literacy/RL/2/1.xml", :target => "_blank" } corestandards.org/ELA-Literacy/RL/2/1.xml.
+        br/
+        | From it we have can get the following information: 
+        ul
+          li dotNotation = RL.2.1
+          li standard = Ask and answer such questions...
+          li RefUri = http://corestandards.org/ELA-Literacy/RL/2/1/
+          li RefId = C915B8DFF14243069B4916D5C35CF763
+        br/
+        | Now open the parent node as html:
+        a{ :href => "http://corestandards.org/ELA-Literacy/RL/2", :target => "_blank" } corestandards.org/ELA-Literacy/RL/2.
+        br/
+        | You can see that we have some more information about the standard here:
+        ul
+          li category = Reading: Literature
+          li subCategory = Key ideas and details
+
+        h4 How
+        | By parsing the xml and the html available on corestandards.org and combining them into json.
+        | Source code on 
+        a{ :href => "http://github.com/edeustace/core-standards-extra"} github.
+
+
+

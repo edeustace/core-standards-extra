@@ -1,0 +1,43 @@
+body{
+  background: 
+  -webkit-linear-gradient(-25deg, transparent 75%, rgba(140,52,50,0.6) 75%) 0 0,
+  -webkit-linear-gradient(-155deg, transparent 75%, rgba(140,52,50,0.6) 75%) 0 0,
+  -webkit-linear-gradient(-25deg, transparent 75%, rgba(140,52,50,0.6) 75%) 7px -15px,
+  -webkit-linear-gradient(-155deg, transparent 75%, rgba(140,52,50,0.6) 75%) 7px -15px,
+  rgb(84,53,52);
+  background-size: 15px 30px;
+  
+}
+
+html,body{
+  /*color: #fff;*/
+  font-size: 12px; 
+  font-family: 'Domine', serif;
+}
+
+.container{
+  width: 800px;
+  margin: 0 auto;
+}
+
+pre{
+  font-size: 9px;
+}
+
+a, a:visited, a:hover {
+  color: rgb(68, 124, 130);
+
+}
+
+.title > .main,
+.title > .tagged {
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+}
+.tagged{
+  font-weight: normal;
+  padding-left: 10px;
+  color: rgb(84,53,52);
+
+}
