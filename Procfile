@@ -1,1 +1,1 @@
-web: target/start com.ee.Web
+web: target/start com.ee.corestandards.web.Web

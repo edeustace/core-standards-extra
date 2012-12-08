@@ -28,7 +28,8 @@ libraryDependencies ++= Seq(
    "com.ee" %% "core-standards-parser" % "0.1",
    "com.codahale" % "jerkson_2.9.1" % "0.5.0",
    "com.typesafe" % "config" % "1.0.0",
-   "com.mongodb.casbah" % "casbah_2.9.1" % "2.1.5-1"
+   "com.mongodb.casbah" % "casbah_2.9.1" % "2.1.5-1",
+   "org.fusesource.scalate" % "scalate-core" % "1.5.3"
 )
 
 
