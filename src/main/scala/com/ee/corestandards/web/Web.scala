@@ -19,22 +19,16 @@ import com.mongodb.casbah.commons.MongoDBObject
 
 object App extends unfiltered.filter.Plan {
 
-  val systemConfig : Config = ConfigFactory.systemEnvironment()
-  
-  val mongoUri : String = ConfigLoader.get("CORE_STANDARDS_EXTRA_DB")
-    .getOrElse("mongodb://127.0.0.1:27017/core-standards-extra-dev")
-
-  val initId : String = ConfigLoader.get("CORE_STANDARDS_INIT_ID")
-    .getOrElse("0")
+  val mongoUri : String = configOrElse("CORE_STANDARDS_EXTRA_DB", "mongodb://127.0.0.1:27017/core-standards-extra-dev")
+  val initId : String = configOrElse("CORE_STANDARDS_INIT_ID", "0")
 
   lazy val collection : MongoCollection = MongoUtil.getCollection(mongoUri, "standards")
 
+  val MATH_ROOT = configOrElse("MATH_ROOT", "http://www.corestandards.org/Math/Content/3/NBT.xml")
+  val ELA_ROOT = configOrElse("ELA_ROOT", "http://www.corestandards.org/ELA-Literacy/RL/2.xml")
 
-  //val MATH_ROOT = "http://www.corestandards.org/Math.xml"
-  //val ELA_ROOT = "http://www.corestandards.org/ELA-Literacy.xml"
-  val MATH_ROOT ="http://www.corestandards.org/Math/Content/3/NBT.xml"
-  val ELA_ROOT = "http://www.corestandards.org/ELA-Literacy/RL/2.xml"
-
+  private def configOrElse(key:String,default:String) = ConfigLoader.get(key).getOrElse(default)
+  
   def intent = {
     case GET(Path(Seg("init" :: id :: Nil))) => {
       println("id: " + id)
